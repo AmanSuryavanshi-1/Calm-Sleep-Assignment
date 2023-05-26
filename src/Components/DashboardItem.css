@@ -1,0 +1,122 @@
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
+
+.body {
+  background-color: #093245 ;
+  padding: 10px 30px;
+  font-family: Plusjakartasans,sans-serif;
+  min-height: 100%;
+  color: #CCCCCC;
+}
+
+h1{
+  font-size: 50px;
+  text-shadow: 2px 2px 3px rgb(79, 79, 79);
+  letter-spacing: 1px;
+  color: #CCCCCC;
+  background-color: #093245;
+  padding: 18px;
+  font-family: Plusjakartasans,sans-serif;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.table-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.image {
+  width: 20vw;
+  height: 20vh;
+  object-fit: cover;
+  border-radius: 5%;
+  box-shadow: 5px 5px 4px rgb(107, 107, 107);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 40px;
+}
+
+th, td {
+  padding: 12px;
+  text-align:justify;
+}
+
+th {
+  font-weight: bold;
+}
+
+.progress-bar {
+  height: 15px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  margin-bottom: 30px;
+}
+
+.progress {
+  height: 100%;
+  background-color: #197e9b;
+  border-radius: 5px;
+}
+
+.chart-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* 
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.chart-legend-color {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.chart-legend-label {
+  font-size: 14px;
+} */
+
+@media screen and (max-width: 768px) {
+  .img-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .image {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .chart-legend {
+    flex-wrap: wrap;
+  }
+
+  .chart-legend-item {
+    margin-bottom: 10px;
+  }
+}
