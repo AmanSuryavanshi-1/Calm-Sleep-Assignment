@@ -1,40 +1,44 @@
-  @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
 .body {
   background-color: #093245 ;
   padding: 10px 30px;
-  font-family: Plusjakartasans,sans-serif;
+  font-family: 'Merriweather', serif;
   min-height: 100%;
   color: #CCCCCC;
 }
 
 h1{
-  font-size: 50px;
+  font-size: 40px;
   text-shadow: 2px 2px 3px rgb(79, 79, 79);
-  letter-spacing: 1px;
+  letter-spacing: 1px; 
+  word-spacing: 3px;
   color: #CCCCCC;
-  background-color: #093245;
+  background-color: #04131a;
   padding: 18px;
-  font-family: Plusjakartasans,sans-serif;
+  font-family: 'Merriweather', serif;
   margin: 0;
+  background-image: linear-gradient(to bottom, #2e5d72, #08181e);
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .table-container {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .image {
-  width: 20vw;
-  height: 20vh;
-  object-fit: cover;
-  border-radius: 5%;
-  box-shadow: 5px 5px 4px rgb(107, 107, 107);
+  width: 280px;
+  height: 160px;
+  border-radius: 50%;
+  margin-right: 20px;
+  box-shadow: 6px 6px 3px rgba(0, 0, 0, 0.497);
 }
 
 table {
@@ -45,15 +49,19 @@ table {
 
 th, td {
   padding: 12px;
-  text-align:justify;
+  text-align:center;
+  box-shadow: 1px 2px 3px rgba(255, 255, 255, 0.656);
+
 }
 
 th {
   font-weight: bold;
+  background-color:#08181e;
+  text-align: left;
 }
 
 .progress-bar {
-  height: 15px;
+  height: 10px;
   background-color: #f2f2f2;
   border-radius: 5px;
   margin-bottom: 30px;
@@ -63,13 +71,25 @@ th {
   height: 100%;
   background-color: #197e9b;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
-.chart-container {
-  height: 300px;
+.charts{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:space-between;
+  padding: 20px 20px;
+}
+.line-chart{
+  height: 300px;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(to bottom, #093245, #1c6f8b);
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 .chart-title {
@@ -77,46 +97,135 @@ th {
   font-weight: bold;
   margin-bottom: 10px;
 }
-/* 
-.chart-legend {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.chart-legend-item {
+.Bar-chart {
+  height: 300px;
+  width: 80%;
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  justify-content: center;
+  background-image: linear-gradient(to bottom, #093245, #1c6f8b);
+  padding: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
-.chart-legend-color {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
 
-.chart-legend-label {
-  font-size: 14px;
-} */
+@media screen and (max-width: 900px) {
+  .image {
+    width: 80%;
+    height: 50vh;
+    margin: 10px 50px;
+  }
 
-@media screen and (max-width: 768px) {
-  .img-container {
+  .table-container {
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  .image {
-    margin-right: 0;
+  .charts {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 10px;
+  }
+  
+  .line-chart, .Bar-chart {
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  table {
+    display: block;
+    margin: 0;
+  }
+
+  table thead,
+  table tbody,
+  table tr,
+  table th,
+  table td {
+    display: block;
+  }
+table th{
+  display: none;
+}
+table th:nth-child(1){
+display: block;
+}
+  table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  table tbody tr {
+    border: 1px solid #ccc;
     margin-bottom: 10px;
   }
 
-  .chart-legend {
-    flex-wrap: wrap;
+  table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
   }
 
-  .chart-legend-item {
-    margin-bottom: 10px;
+  table td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  table td:nth-of-type(1):before {
+    content: "Jan";
+    font-weight: bold;
+  }
+
+  table td:nth-of-type(2):before {
+    content: "Feb";
+    font-weight: bold;
+  }
+  table td:nth-of-type(3):before {
+    content: "March";
+    font-weight: bold;
+  }
+  table td:nth-of-type(4):before {
+    content: "April";
+    font-weight: bold;
+  }
+  table td:nth-of-type(5):before {
+    content: "May";
+    font-weight: bold;
+  }
+  table td:nth-of-type(6):before {
+    content: "Jun";
+    font-weight: bold;
+  }
+  table td:nth-of-type(7):before {
+    content: "Jul";
+    font-weight: bold;
+  }
+  table td:nth-of-type(8):before {
+    content: "Aug";
+    font-weight: bold;
+  }table td:nth-of-type(9):before {
+    content: "Sept";
+    font-weight: bold;
+  }
+  table td:nth-of-type(10):before {
+    content: "Oct";
+    font-weight: bold;
+  }
+  table td:nth-of-type(11):before {
+    content: "Nov";
+    font-weight: bold;
+  }
+  table td:nth-of-type(12):before {
+    content: "Dec";
+    font-weight: bold;
   }
 }

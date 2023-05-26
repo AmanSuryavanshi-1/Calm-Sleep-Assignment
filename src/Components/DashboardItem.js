@@ -1,27 +1,48 @@
-import React from 'react';
-import './DashboardItem.css';
-import { Line, Bar } from 'react-chartjs-2';
-import { Chart, registerables } from 'chart.js';
+import React from "react";
+import "./DashboardItem.css";
+import { Line, Bar } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
 
 Chart.register(...registerables);
 
-const DashboardItem = ({ image, title, uniquePlays, totalPlays, completionRate, clickRate, downloadRate }) => {
+const DashboardItem = ({
+  image,
+  title,
+  uniquePlays,
+  totalPlays,
+  completionRate,
+  clickRate,
+  downloadRate,
+}) => {
   const lineChartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     datasets: [
       {
-        label: 'Unique Plays',
+        label: "Unique Plays (K)",
         data: uniquePlays,
-        backgroundColor: '#fc9614',
-        borderColor: 'black',
+        backgroundColor: "#fc9614",
+        borderColor: "black",
         borderWidth: 1,
         fill: true,
       },
       {
-        label: 'Total Plays',
+        label: "Total Plays (M)",
         data: totalPlays,
-        backgroundColor: '#EEEEEE',
-        borderColor: 'black',
+        backgroundColor: "#EEEEEE",
+        borderColor: "black",
         borderWidth: 1,
         fill: true,
       },
@@ -29,20 +50,33 @@ const DashboardItem = ({ image, title, uniquePlays, totalPlays, completionRate, 
   };
 
   const barChartData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+    labels: [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sept",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
     datasets: [
       {
-        label: 'Click Rate',
+        label: "Click Rate ",
         data: clickRate,
-        backgroundColor: '#4287f5',
-        borderColor: 'black',
+        backgroundColor: "#17d4c8",
+        borderColor: "black",
         borderWidth: 1,
       },
       {
-        label: 'Download Rate',
+        label: "Download Rate ",
         data: downloadRate,
-        backgroundColor: '#f542a9',
-        borderColor: 'black',
+        backgroundColor: "#eeeeee",
+        borderColor: "black",
         borderWidth: 1,
       },
     ],
@@ -51,17 +85,17 @@ const DashboardItem = ({ image, title, uniquePlays, totalPlays, completionRate, 
   const chartOptions = {
     scales: {
       y: {
-        type: 'linear',
+        type: "linear",
         beginAtZero: true,
       },
     },
   };
 
   return (
-    <div className='body'>
+    <div className="body">
       <h2>{title}</h2>
-      <div className='table-container'>
-        <img className='image' src={image} alt={title} />
+      <div className="table-container">
+        <img className="image" src={image} alt={title} />
         <table>
           <tbody>
             <tr>
@@ -80,15 +114,15 @@ const DashboardItem = ({ image, title, uniquePlays, totalPlays, completionRate, 
               <th>Dec</th>
             </tr>
             <tr>
-              <th>Unique Plays</th>
+              <th>Unique Plays (K)</th>
               {uniquePlays.map((data, index) => (
-                <td key={index}>{data} K</td>
+                <td key={index}>{data}</td>
               ))}
             </tr>
             <tr>
-              <th>Total Plays</th>
+              <th>Total Plays (M)</th>
               {totalPlays.map((data, index) => (
-                <td key={index}>{data} M</td>
+                <td key={index}>{data}</td>
               ))}
             </tr>
           </tbody>
@@ -96,22 +130,27 @@ const DashboardItem = ({ image, title, uniquePlays, totalPlays, completionRate, 
       </div>
       <p>
         <b>
-          Completion Rate:{' '}
+          Completion Rate:{" "}
           {completionRate &&
             Array.from(String(completionRate)).map((data, index) => (
               <span key={index}>{data}</span>
             ))}
           %
         </b>
-      </p>
-      <div className="progress-bar">
+        <div className="progress-bar">
         <div className="progress" style={{ width: `${completionRate}%` }} />
       </div>
-      <div className="chart-container">
+      </p>
+
+
+      <div className="charts">
+      <div className="line-chart">
         <Line data={lineChartData} options={chartOptions} />
       </div>
-      <div className="chart">
+      <div className="Bar-chart">
         <Bar data={barChartData} options={chartOptions} />
+      </div>
+
       </div>
     </div>
   );
